@@ -9,8 +9,7 @@
     "typecheck": "turbo typecheck",
     "format": "turbo format --continue -- --cache --cache-location='node_modules/.cache/.prettiercache' --ignore-path='../../.gitignore'",
     "format:fix": "turbo format --continue -- --write --cache --cache-location='node_modules/.cache/.prettiercache' --ignore-path='../../.gitignore'",
-    "publish-packages": "turbo run build && changeset version && changeset publish",
-    "changeset": "changeset"
+    "publish-packages": "turbo run build && changeset version && changeset publish"
   },
   "devDependencies": {
     "@0xaddm/prettier-config": "*",
