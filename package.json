@@ -1,17 +1,25 @@
 {
+  "name": "packages",
   "private": true,
+  "packageManager": "pnpm@8.6.10",
   "scripts": {
-    "build": "turbo run build",
+    "build": "turbo --filter \"./packages/*\" build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "typecheck": "turbo typecheck",
+    "format": "turbo format --continue -- --cache --cache-location='node_modules/.cache/.prettiercache' --ignore-path='../../.gitignore'",
+    "format:fix": "turbo format --continue -- --write --cache --cache-location='node_modules/.cache/.prettiercache' --ignore-path='../../.gitignore'",
+    "publish-packages": "turbo run build && changeset version && changeset publish",
+    "changeset": "changeset"
   },
   "devDependencies": {
+    "@0xaddm/prettier-config": "*",
     "eslint": "^8.48.0",
-    "prettier": "^3.0.3",
-    "tsconfig": "workspace:*",
-    "turbo": "latest"
+    "turbo": "latest",
+    "typescript": "^5.2.2"
   },
-  "packageManager": "pnpm@8.6.10",
-  "name": "packages"
+  "dependencies": {
+    "@changesets/changelog-github": "^0.4.8",
+    "@changesets/cli": "^2.26.2"
+  }
 }

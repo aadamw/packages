@@ -1,0 +1,31 @@
+{
+  "name": "@0xaddm/prettier-config",
+  "license": "MIT",
+  "private": true,
+  "version": "1.0.0",
+  "author": "0xaddm",
+  "main": "./dist/index.js",
+  "keywords": [
+    "prettier",
+    "config"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/0xaddm/packages",
+    "directory": "packages/prettier"
+  },
+  "scripts": {
+    "build": "tsup index.mjs",
+    "publish": "changeset version"
+  },
+  "dependencies": {
+    "@ianvs/prettier-plugin-sort-imports": "4.1.0",
+    "prettier": "3.0.3",
+    "prettier-plugin-tailwindcss": "0.5.4"
+  },
+  "devDependencies": {
+    "@0xaddm/tsconfig": "^0.1.0",
+    "typescript": "^5.1.6",
+    "tsup": "^7.2.0"
+  }
+}
