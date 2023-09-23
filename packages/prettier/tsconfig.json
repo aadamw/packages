@@ -1,8 +1,5 @@
 {
-  "extends": "@0xaddm/tsconfig/base.json",
-  "compilerOptions": {
-    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"
-  },
+  "extends": "../../tsconfig.json",
   "include": ["."],
-  "exclude": ["node_modules"]
+  "exclude": ["dist"]
 }

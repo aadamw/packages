@@ -28,6 +28,22 @@ importers:
         specifier: ^5.2.2
         version: 5.2.2
 
+  packages/cn:
+    dependencies:
+      clsx:
+        specifier: 2.0.0
+        version: 2.0.0
+      tailwind-merge:
+        specifier: 1.14.0
+        version: 1.14.0
+    devDependencies:
+      tsup:
+        specifier: ^7.2.0
+        version: 7.2.0(typescript@5.2.2)
+      typescript:
+        specifier: ^5.1.6
+        version: 5.2.2
+
   packages/prettier:
     dependencies:
       '@ianvs/prettier-plugin-sort-imports':
@@ -40,17 +56,12 @@ importers:
         specifier: 0.5.4
         version: 0.5.4(@ianvs/prettier-plugin-sort-imports@4.1.0)(prettier@3.0.3)
     devDependencies:
-      '@0xaddm/tsconfig':
-        specifier: ^0.1.0
-        version: link:../typescript
       tsup:
         specifier: ^7.2.0
         version: 7.2.0(typescript@5.2.2)
       typescript:
         specifier: ^5.1.6
         version: 5.2.2
-
-  packages/typescript: {}
 
 packages:
 
@@ -1089,6 +1100,11 @@ packages:
   /clone@1.0.4:
     resolution: {integrity: sha512-JQHZ2QMW6l3aH/j6xCqQThY/9OH4D/9ls34cgkUBiEeocRTU04tHfKPBsUK1PqZCUQM7GiA0IIXJSuXHI64Kbg==}
     engines: {node: '>=0.8'}
+    dev: false
+
+  /clsx@2.0.0:
+    resolution: {integrity: sha512-rQ1+kcj+ttHG0MKVGBUXwayCCF1oh39BF5COIpRzuCEv8Mwjv0XucrI2ExNTOn9IlLifGClWQcU9BrZORvtw6Q==}
+    engines: {node: '>=6'}
     dev: false
 
   /color-convert@1.9.3:
@@ -2912,6 +2928,10 @@ packages:
   /supports-preserve-symlinks-flag@1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
+    dev: false
+
+  /tailwind-merge@1.14.0:
+    resolution: {integrity: sha512-3mFKyCo/MBcgyOTlrY8T7odzZFx+w+qKSMAmdFzRvqBfLlSigU6TZnlFHK0lkMwj9Bj8OYU+9yW9lmGuS0QEnQ==}
     dev: false
 
   /term-size@2.2.1:
