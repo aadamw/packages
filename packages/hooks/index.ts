@@ -165,3 +165,20 @@ export function useSessionStorage<Value>(key: string, initialValue: Value) {
 
   return [getReturnValue(), setState];
 }
+
+export function useLockBodyScroll(apply?: boolean) {
+  React.useEffect(() => {
+    const originalStyle = window.getComputedStyle(document.body).overflow;
+    const removeOverflow = () => {
+      document.body.style.overflow = originalStyle;
+    };
+
+    if (typeof apply === "undefined" || apply) {
+      document.body.style.overflow = "hidden";
+    }
+
+    return () => {
+      removeOverflow();
+    };
+  }, [apply]);
+}

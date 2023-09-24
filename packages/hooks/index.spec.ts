@@ -1,5 +1,9 @@
 import { renderHook, act } from "@testing-library/react";
-import { useLocalStorage, useSessionStorage } from "./index.js";
+import {
+  useLocalStorage,
+  useLockBodyScroll,
+  useSessionStorage,
+} from "./index.js";
 
 describe("useLocalStorage", () => {
   it("returns the initial value when the key is not present in localStorage", () => {
@@ -130,5 +134,23 @@ describe("useSessionStorage", () => {
         renderHook(() => useSessionStorage("key", "initialValue")),
       ).toThrowError();
     } catch (e) {}
+  });
+});
+
+describe("useLockBodyScroll", () => {
+  it('adds "overflow: hidden" to body called without prop', () => {
+    renderHook(() => useLockBodyScroll());
+
+    expect(document.body.style.overflow).toBe("hidden");
+  });
+  it('adds "overflow: hidden" to body called with true', () => {
+    renderHook(() => useLockBodyScroll(true));
+
+    expect(document.body.style.overflow).toBe("hidden");
+  });
+  it("doesn't adds 'overflow: hidden' to body called with true", () => {
+    renderHook(() => useLockBodyScroll(false));
+
+    expect(document.body.style.overflow).not.toBe("hidden");
   });
 });
