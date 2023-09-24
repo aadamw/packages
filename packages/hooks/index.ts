@@ -166,7 +166,7 @@ export function useSessionStorage<Value>(key: string, initialValue: Value) {
   return [getReturnValue(), setState];
 }
 
-export function useLockBodyScroll(apply?: boolean) {
+export function useLockBodyScroll(apply?: boolean): void {
   React.useEffect(() => {
     const originalStyle = window.getComputedStyle(document.body).overflow;
     const removeOverflow = () => {
@@ -181,4 +181,35 @@ export function useLockBodyScroll(apply?: boolean) {
       removeOverflow();
     };
   }, [apply]);
+}
+
+export function useOnClickOutside<Element extends HTMLElement>(
+  cb: (e: MouseEvent | TouchEvent) => void,
+): React.RefObject<Element> {
+  const ref = React.useRef<Element>(null);
+  const refCb = React.useRef(cb);
+
+  React.useLayoutEffect(() => {
+    refCb.current = cb;
+  });
+
+  React.useEffect(() => {
+    const handler = (e: MouseEvent | TouchEvent) => {
+      const element = ref.current;
+
+      if (element && !element.contains(e.target as Node)) {
+        refCb.current(e);
+      }
+    };
+
+    document.addEventListener("mousedown", handler);
+    document.addEventListener("touchstart", handler);
+
+    return () => {
+      document.removeEventListener("mousedown", handler);
+      document.removeEventListener("touchstart", handler);
+    };
+  }, []);
+
+  return ref;
 }
