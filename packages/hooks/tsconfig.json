@@ -1,0 +1,8 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": ["*.ts", "*.tsx", "vitest.config.mts", "index.spec.mts"],
+  "exclude": ["dist"],
+  "compilerOptions": {
+    "types": ["vitest/globals", "@testing-library/jest-dom"]
+  }
+}
